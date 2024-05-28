@@ -1,0 +1,7 @@
+{
+  "name": "ServiHub",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
