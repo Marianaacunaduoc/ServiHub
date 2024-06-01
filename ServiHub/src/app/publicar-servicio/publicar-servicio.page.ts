@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-publicar-servicio',
@@ -8,18 +8,33 @@ import { AlertController } from '@ionic/angular';
 })
 export class PublicarServicioPage implements OnInit {
 
-  constructor(private alertController: AlertController) { }
+  constructor(private alertController: AlertController, private navCtrl: NavController) { }
 
   ngOnInit() {
   }
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      message: `Tu servicio se creo con exito `,
-      buttons: ['OK'],
+      message: 'Tu servicio se creó con éxito',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.goToHome();
+          }
+        }
+      ]
     });
 
     await alert.present();
+  }
+
+  goToHome() {
+    this.navCtrl.navigateRoot('/home');
+  }
+
+  cancel() {
+    this.navCtrl.navigateRoot('/home');
   }
 
 }

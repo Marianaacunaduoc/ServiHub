@@ -26,11 +26,7 @@ const routes: Routes = [
   {
     path: 'ver-servicio',
     loadChildren: () => import('./ver-servicio/ver-servicio.module').then( m => m.VerServicioPageModule)
-  },
-  {
-    path: 'ver-publicacion',
-    loadChildren: () => import('./ver-publicacion/ver-publicacion.module').then( m => m.VerPublicacionPageModule)
-  },
+  }
   
 ];
 

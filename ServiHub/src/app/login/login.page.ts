@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -18,11 +19,11 @@ export class LoginPage implements OnInit {
   emailCuenta: string = "";
   contrasena: string = "";
 
-  constructor(private router: Router, private fb: FormBuilder) { 
+  constructor(private router: Router, private fb: FormBuilder, private navCtrl: NavController) { 
     this.validarForm = this.fb.group({
       email: ['', [
         Validators.required,
-        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{50}$/) 
+        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]$/) 
       ]],
       password: ['', [
         Validators.required,
@@ -48,4 +49,9 @@ export class LoginPage implements OnInit {
       console.log('Datos ingresados no son validos');
     }
   }
+
+  goToCrearCuenta() {
+    this.navCtrl.navigateForward('/crear-cuenta');
+  }
 }
+

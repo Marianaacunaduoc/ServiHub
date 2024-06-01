@@ -1,18 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>VerServicio</ion-title>
+    <ion-title>ServiHub</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-icon name="person-circle-outline" style="font-size: 50px;"></ion-icon>
-
-  <div class="center-content">
-    <ion-button fill="clear">
-      <ion-label>Publicar</ion-label>
-    </ion-button>
-  </div>
-
+  
   <div class="centered-content">
     <h1>nombre del servicio</h1>
     <p>Reparación de circuitos eléctricos, Instalación de luces y enchufes, Mantenimiento de sistemas eléctricos</p>
@@ -23,7 +16,7 @@
       <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
     </ion-avatar>
     <ion-label>
-      <div>Nombre y Apellido</div>
+      <div>Instalación de sistemas eléctricos </div>
       <div class="rating">
         <mat-icon>star</mat-icon>
         <mat-icon>star</mat-icon>
@@ -39,7 +32,7 @@
       <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
     </ion-avatar>
     <ion-label>
-      <div>Nombre y Apellido</div>
+      <div>Reparación de cortocircuitos y fallos eléctricos.</div>
       <div class="rating">
         <mat-icon>star</mat-icon>
         <mat-icon>star</mat-icon>
@@ -54,7 +47,7 @@
       <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
     </ion-avatar>
     <ion-label>
-      <div>Nombre y Apellido</div>
+      <div>Instalación de sistemas de calefacción eléctrica</div>
       <div class="rating">
         <mat-icon>star</mat-icon>
         <mat-icon>star</mat-icon>
@@ -62,4 +55,10 @@
       </div>
     </ion-label>
   </ion-item>
+
+  <div class="button-container">
+    <ion-button class="custom-button" (click)="goToHome()">Atras</ion-button>
+  </div>
+
+  
 </ion-content>
