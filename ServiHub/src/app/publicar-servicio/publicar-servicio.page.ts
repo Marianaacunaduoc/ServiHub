@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-publicar-servicio',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicarServicioPage implements OnInit {
 
-  constructor() { }
+  constructor(private alertController: AlertController) { }
 
   ngOnInit() {
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      message: `Tu servicio se creo con exito `,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 
 }

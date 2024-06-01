@@ -5,9 +5,41 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">PublicarServicio</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <div class="ion-text-center centered-content extra-space">
+    <h1>Publicar nuevo servicio</h1>
+  </div>
+  <ion-item>
+    <ion-select label="Categoria">
+      <ion-select-option value="plomeria">Plomeria</ion-select-option>
+      <ion-select-option value="electricidad">Electricidad</ion-select-option>
+      <ion-select-option value="limpieza">Limpieza</ion-select-option>
+      <ion-select-option value="carpinteria">Carpinteria</ion-select-option>
+      <ion-select-option value="jardineria">Jardineria</ion-select-option>
+      <ion-select-option value="cerrajeria">Cerrajeria</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-input label="telefono" type="tel" placeholder="+56 999999999"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input label="Email de contacto" type="email" placeholder="email@domain.com"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-textarea label="Descripción: " labelPlacement="floating"  maxlength="200"></ion-textarea>
+  </ion-item>
+
+  <h2>Muestra tu trabajo! <ion-button fill="clear">
+    <ion-label>Subir foto</ion-label>
+  </ion-button></h2>
+
+
+  <div class="button-container">
+    <ion-button (click)="presentAlert()">Aceptar</ion-button> 
+    <ion-button (click)="presentAlert()">Cancelar</ion-button>
+  </div>
+
 </ion-content>

@@ -25,3 +25,72 @@
 #container a {
   text-decoration: none;
 }
+
+/*
+link de publicar
+*/
+ion-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.center-content {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 20px; 
+  }
+
+  ion-grid {
+    width: 100%; 
+
+    ion-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .service-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .icon-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #135d54;
+          border: solid 1px #fff;
+          color: #fff;
+          width: 100px; 
+          height: 100px; 
+          border-radius: 50%; 
+          margin-bottom: 10px; 
+
+          ion-icon {
+            font-size: 36px; 
+          }
+        }
+
+        ion-label {
+          font-size: 14px; 
+        }
+      }
+    }
+  }
+}
+
+

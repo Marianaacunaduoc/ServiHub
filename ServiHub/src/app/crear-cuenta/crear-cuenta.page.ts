@@ -9,6 +9,8 @@ export class CrearCuentaPage implements OnInit {
 
   constructor() { }
 
+  fechaSeleccionada: Date = new Date();
+
   ngOnInit() {
   }
 

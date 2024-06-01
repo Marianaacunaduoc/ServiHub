@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
       ]],
       password: ['', [
         Validators.required,
-        Validators.pattern(/^\d{4}$/) 
+        Validators.pattern(/^[a-zA-Z0-9]{8}$/) 
       ]]
     });
   }

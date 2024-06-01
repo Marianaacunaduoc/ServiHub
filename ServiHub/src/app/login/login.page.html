@@ -5,11 +5,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">ServiHub</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+  <ion-img
+  src="assets/images/h.png"
+  alt="Logo de la App"
+  class="small-image"
+></ion-img>
+
+  <ion-item>
+    <h2>Iniciar Sesión</h2>
+  </ion-item>
 
   <form [formGroup]="validarForm">
     <ion-list>
@@ -28,14 +33,14 @@
 
       <ion-item>
         <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" formControlName="password" maxlength="4"></ion-input>
+        <ion-input type="password" formControlName="password" maxlength="8"></ion-input>
       </ion-item>
       <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
         <ion-text color="danger" *ngIf="password?.errors?.['required']">
           * Obligatorio.
         </ion-text>
         <ion-text color="danger" *ngIf="password?.errors?.['pattern']">
-          La contraseña debe tener solo 4 dígitos.
+          La contraseña debe tener solo 8 Caracteres.
         </ion-text>
       </div>
     </ion-list>
@@ -45,5 +50,10 @@
     </div>
 </form>
 
-  
+<div class="center-content">
+  <ion-button fill="clear">
+    <ion-label>Crea tu cuenta gratis</ion-label>
+  </ion-button>
+</div>
+
 </ion-content>
