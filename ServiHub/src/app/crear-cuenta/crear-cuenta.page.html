@@ -1,46 +1,85 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>ServiHub</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button text="Volver" defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    
+
+    <ion-title>Registrarse</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <div class="ion-text-center centered-content extra-space">
-    <h1>Registrarse</h1>
+<ion-content>
+  <div class="d-flex-center">
+    <form [formGroup]="form" class="auth-form" (ngSubmit)="crearCuenta()">
+      <ion-icon class="servihub-icon" src="assets/icon/h.svg"></ion-icon>
+      <!--  ==== Nombre ====  -->
+      <ion-item class="custom-input" lines="none">
+        <ion-icon slot="start" name="person-outline" color="primary"></ion-icon>
+        <ion-input type="text" label="Nombre" label-placement="floating" formControlName="nombre">
+        </ion-input>
+      </ion-item>
+
+      <div *ngIf="form.controls.nombre.errors && form.controls.nombre.touched">
+        <ion-text color="danger" *ngIf="form.controls.nombre.errors?.['required']">
+          * Obligatorio.
+        </ion-text>
+        <ion-text color="danger" *ngIf="form.controls.nombre.errors?.['minLength']">
+          Debe contar con al menos 4 caracteres.
+        </ion-text>
+      </div>
+
+      <!--  ==== Apellido ====  -->
+      <ion-item class="custom-input" lines="none">
+        <ion-icon slot="start" name="person-outline" color="primary"></ion-icon>
+        <ion-input type="text" label="Apellido" label-placement="floating" formControlName="apellido">
+        </ion-input>
+      </ion-item>
+
+      <div *ngIf="form.controls.apellido.errors && form.controls.apellido.touched">
+        <ion-text color="danger" *ngIf="form.controls.apellido.errors?.['required']">
+          * Obligatorio.
+        </ion-text>
+        <ion-text color="danger" *ngIf="form.controls.apellido.errors?.['minLength']">
+          Debe contar con al menos 4 caracteres.
+        </ion-text>
+      </div>
+      <!--  ==== Email ====  -->
+      <ion-item class="custom-input" lines="none">
+        <ion-icon slot="start" name="mail-outline" color="primary"></ion-icon>
+        <ion-input type="email" label="Email" label-placement="floating" formControlName="email">
+        </ion-input>
+      </ion-item>
+
+      <div *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <ion-text color="danger" *ngIf="form.controls.email.errors?.['required']">
+          * Obligatorio.
+        </ion-text>
+        <ion-text color="danger" *ngIf="form.controls.email.errors?.['pattern']">
+          Ingrese un Email válido.
+        </ion-text>
+      </div>
+      <!--  ==== Password ====  -->
+      <ion-item class="custom-input" lines="none">
+        <ion-icon slot="start" name="lock-closed-outline" color="primary"></ion-icon>
+        <ion-input [type]="passwordType" label="Contraseña" label-placement="floating" formControlName="password">
+        </ion-input>
+        <ion-button (click)="showOrHidePassword()" slot="end" fill="clear" shape="round">
+          <ion-icon slot="icon-only" [name]="hide ? 'eye-outline' : 'eye-off-outline'"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <div *ngIf="form.controls.password.errors && form.controls.password.touched">
+        <ion-text color="danger" *ngIf="form.controls.password.errors?.['required']">
+          * Obligatorio.
+        </ion-text>
+      </div>
+
+      <ion-button class="submit" expand="block" type="submit" mode="ios" [disabled]="form.invalid"
+        (click)="crearCuenta()">
+        Registrarse
+        <ion-icon slot="end" name="person-add-outline"></ion-icon>
+      </ion-button>
+    </form>
   </div>
-
-  <ion-list>
-    <ion-list>
-      <ion-item>
-        <ion-input label="Nombre" ></ion-input>
-      </ion-item>
-  
-      <ion-item>
-        <ion-input label="Apellido" ></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Fecha Nacimiento</ion-label>
-        <mat-form-field >
-          <input formControlName="fechaNacimiento" matInput [matDatepicker]="picker" [(ngModel)]="fechaSeleccionada">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </ion-item>
-
-      <ion-item>
-        <ion-input label="Email" type="email" placeholder="email@domain.com"></ion-input>
-      </ion-item>
-  
-      <ion-item>
-        <ion-input label="Password" type="password" value="password"></ion-input>
-      </ion-item>
-    </ion-list>
-  </ion-list>
-
-  <div class="button-container">
-    <ion-button class="custom-button" (click)="goToLogin()">Aceptar</ion-button>
-  </div>
-
-  
 </ion-content>

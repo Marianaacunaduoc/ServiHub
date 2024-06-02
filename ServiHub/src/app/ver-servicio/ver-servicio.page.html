@@ -1,64 +1,84 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button text="Volver" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
     <ion-title>ServiHub</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  
+<ion-content>
+ 
   <div class="centered-content">
-    <h1>nombre del servicio</h1>
+    <h1>{{servicio}}</h1>
     <p>Reparación de circuitos eléctricos, Instalación de luces y enchufes, Mantenimiento de sistemas eléctricos</p>
   </div>
 
-  <ion-item>
-    <ion-avatar slot="start">
-      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-    </ion-avatar>
-    <ion-label>
-      <div>Instalación de sistemas eléctricos </div>
-      <div class="rating">
-        <mat-icon>star</mat-icon>
-        <mat-icon>star</mat-icon>
-        <mat-icon>star</mat-icon>
-        <mat-icon>star</mat-icon>
-        <mat-icon>star_border</mat-icon>
-      </div>
-    </ion-label>
-  </ion-item>
-
-  <ion-item>
-    <ion-avatar slot="start">
-      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-    </ion-avatar>
-    <ion-label>
-      <div>Reparación de cortocircuitos y fallos eléctricos.</div>
-      <div class="rating">
-        <mat-icon>star</mat-icon>
-        <mat-icon>star</mat-icon>
-        <mat-icon>star</mat-icon>
-        <mat-icon>star_border</mat-icon>
-      </div>
-    </ion-label>
-  </ion-item>
-
-  <ion-item>
-    <ion-avatar slot="start">
-      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-    </ion-avatar>
-    <ion-label>
-      <div>Instalación de sistemas de calefacción eléctrica</div>
-      <div class="rating">
-        <mat-icon>star</mat-icon>
-        <mat-icon>star</mat-icon>
-        <mat-icon>star_border</mat-icon>
-      </div>
-    </ion-label>
-  </ion-item>
-
-  <div class="button-container">
-    <ion-button class="custom-button" (click)="goToHome()">Atras</ion-button>
-  </div>
-
-  
+  <ion-list>
+    <ion-item class="product-item">
+      <ion-avatar slot="start">
+        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />  
+      </ion-avatar>
+      <ion-label>
+        <div class="name">Instalación de sistemas eléctricos </div>
+        <div class="data">descripcion</div>
+        <div class="data rating">
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star_border</mat-icon>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item class="product-item">
+      <ion-avatar slot="start">
+        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />  
+      </ion-avatar>
+      <ion-label>
+        <div class="name">Instalación de sistemas eléctricos </div>
+        <div class="data">descripcion</div>
+        <div class="data rating">
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star_border</mat-icon>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item class="product-item">
+      <ion-avatar slot="start">
+        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />  
+      </ion-avatar>
+      <ion-label>
+        <div class="name">Instalación de sistemas eléctricos </div>
+        <div class="data">descripcion</div>
+        <div class="data rating">
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star_border</mat-icon>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item class="product-item">
+      <ion-avatar slot="start">
+        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />  
+      </ion-avatar>
+      <ion-label>
+        <div class="name">Instalación de sistemas eléctricos </div>
+        <div class="data">descripcion</div>
+        <div class="data rating">
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star_border</mat-icon>
+          <mat-icon>star_border</mat-icon>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

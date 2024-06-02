@@ -1,45 +1,65 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button text="Volver" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
     <ion-title>ServiHub</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<div class="ion-text-center titulo-pagina">
+  <h1>Publicar nuevo servicio</h1>
+</div>
 
-  <div class="ion-text-center centered-content extra-space">
-    <h1>Publicar nuevo servicio</h1>
+<ion-content>
+  <div class="d-flex-center">
+    <form class="auth-form">
+
+      <!--  ==== Categoria ====  -->
+      <ion-item class="custom-input" lines="none">
+        <ion-icon slot="start" name="copy-outline" color="primary"></ion-icon>
+
+        <ion-select label="Categoria" label-placement="floating">
+          <ion-select-option value="plomeria">Plomeria</ion-select-option>
+          <ion-select-option value="electricidad">Electricidad</ion-select-option>
+          <ion-select-option value="limpieza">Limpieza</ion-select-option>
+          <ion-select-option value="carpinteria">Carpinteria</ion-select-option>
+          <ion-select-option value="jardineria">Jardineria</ion-select-option>
+          <ion-select-option value="cerrajeria">Cerrajeria</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <!--  ==== telefono ====  -->
+      <ion-item class="custom-input" lines="none">
+        <ion-icon slot="start" name="call-outline" color="primary"></ion-icon>
+        <ion-input label="telefono" type="tel" placeholder="+56 999999999" label-placement="floating"></ion-input>
+      </ion-item>
+
+      <!--  ==== Email de contacto ====  -->
+      <ion-item class="custom-input" lines="none">
+        <ion-icon slot="start" name="mail-outline" color="primary"></ion-icon>
+        <ion-input label="Email de contacto" type="email" placeholder="email@domain.com"
+          label-placement="floating"></ion-input>
+      </ion-item>
+
+      <!--  ==== descripción ====  -->
+      <ion-item class="custom-input" lines="none">
+        <ion-icon slot="start" name="document-text-outline" color="primary"></ion-icon>
+        <ion-textarea label="Descripción: " labelPlacement="floating" maxlength="200"></ion-textarea>
+      </ion-item>
+
+      <ion-button (click)="presentAlert()" class="submit" expand="block" type="submit" mode="ios">
+        Publicar
+        <ion-icon slot="end" name="megaphone-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button (click)="cancel()" class="ion-margin-top" expand="block" mode="ios" fill="outline">
+        Cancelar
+        <ion-icon slot="end" name="backspace-outline"></ion-icon>
+      </ion-button>
+    </form>
   </div>
-  <ion-item>
-    <ion-select label="Categoria">
-      <ion-select-option value="plomeria">Plomeria</ion-select-option>
-      <ion-select-option value="electricidad">Electricidad</ion-select-option>
-      <ion-select-option value="limpieza">Limpieza</ion-select-option>
-      <ion-select-option value="carpinteria">Carpinteria</ion-select-option>
-      <ion-select-option value="jardineria">Jardineria</ion-select-option>
-      <ion-select-option value="cerrajeria">Cerrajeria</ion-select-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item>
-    <ion-input label="telefono" type="tel" placeholder="+56 999999999"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-input label="Email de contacto" type="email" placeholder="email@domain.com"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-textarea label="Descripción: " labelPlacement="floating"  maxlength="200"></ion-textarea>
-  </ion-item>
-
-  <h2>Muestra tu trabajo! <ion-button fill="clear">
-    <ion-label>Subir foto</ion-label>
-  </ion-button></h2>
-
-
-  <div class="button-container">
-    <ion-button (click)="presentAlert()">Aceptar</ion-button> 
-    <ion-button (click)="cancel()">Cancelar</ion-button>
-  </div>
-
 </ion-content>

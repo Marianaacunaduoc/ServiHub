@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ver-servicio',
@@ -8,13 +8,16 @@ import { Router } from '@angular/router';
 })
 export class VerServicioPage implements OnInit {
 
-  constructor(private router: Router) { }
+  servicio!: string;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-  }
-
-  goToHome() {
-    this.router.navigate(['/home']);
+    this.route.paramMap.subscribe(params => {
+      this.servicio = params.get('servicio')!;
+      console.log('Servicio:', this.servicio);
+      // Puedes usar this.servicio para cargar datos o lógica específica
+    });
   }
 
 }

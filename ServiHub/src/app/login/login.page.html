@@ -1,59 +1,54 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
     <ion-title>ServiHub</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  
-  <ion-img
-  src="assets/images/h.png"
-  alt="Logo de la App"
-  class="small-image"
-></ion-img>
+<ion-content>
+  <div class="d-flex-center">
+    <form [formGroup]="form" class="auth-form" (ngSubmit)="ingresar()">
 
-  <ion-item>
-    <h2>Iniciar Sesión</h2>
-  </ion-item>
+      <ion-icon class="servihub-icon" src="assets/icon/h.svg"></ion-icon>
 
-  <form [formGroup]="validarForm">
-    <ion-list>
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input formControlName="email" ></ion-input>
+      <ion-item class="custom-input" lines="none">
+        <ion-icon slot="start" name="mail-outline" color="primary"></ion-icon>
+        <ion-input type="email" label="Email" label-placement="floating" formControlName="email">
+        </ion-input>
       </ion-item>
-      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
-        <ion-text color="danger" *ngIf="email?.errors?.['required']">
+      <div *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <ion-text color="danger" *ngIf="form.controls.email.errors?.['required']">
           * Obligatorio.
         </ion-text>
-        <ion-text color="danger" *ngIf="email?.errors?.['pattern']">
+        <ion-text color="danger" *ngIf="form.controls.email.errors?.['pattern']">
           Ingrese un Email válido.
         </ion-text>
       </div>
 
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" formControlName="password" maxlength="8"></ion-input>
+      <ion-item class="custom-input" lines="none">
+        <ion-icon slot="start" name="lock-closed-outline" color="primary"></ion-icon>
+        <ion-input [type]="passwordType" label="Contraseña" label-placement="floating" formControlName="password">
+        </ion-input>
+        <ion-button (click)="showOrHidePassword()" slot="end" fill="clear" shape="round">
+          <ion-icon slot="icon-only" [name]="hide ? 'eye-outline' : 'eye-off-outline'"></ion-icon>
+        </ion-button>
       </ion-item>
-      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-        <ion-text color="danger" *ngIf="password?.errors?.['required']">
+
+      <div *ngIf="form.controls.password.errors && form.controls.password.touched">
+        <ion-text color="danger" *ngIf="form.controls.password.errors?.['required']">
           * Obligatorio.
         </ion-text>
-        <ion-text color="danger" *ngIf="password?.errors?.['pattern']">
-          La contraseña debe tener solo 8 Caracteres.
-        </ion-text>
       </div>
-    </ion-list>
 
-    <div class="button-container">
-      <ion-button class="custom-button" (click)="ingresar()">Ingresar</ion-button>
-    </div>
-</form>
+      <ion-button class="submit" expand="block" type="submit" mode="ios" [disabled]="form.invalid" (click)="ingresar()">
+        Ingresar
+        <ion-icon slot="end" name="log-in-outline"></ion-icon>
+      </ion-button>
 
-<div class="center-content">
-  <ion-button fill="clear" (click)="goToCrearCuenta()">
-    <ion-label>Crea tu cuenta gratis</ion-label>
-  </ion-button>
-</div>
+      <ion-button class="ion-margin-top" (click)="goToCrearCuenta()" expand="block" mode="ios" fill="outline">
+        Registrarse
+        <ion-icon slot="end" name="person-add-outline"></ion-icon>
+      </ion-button>
+    </form>
+  </div>
 
 </ion-content>

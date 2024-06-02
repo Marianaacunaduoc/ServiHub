@@ -1,22 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { UtilsService } from '../services/utils.service';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor(private navCtrl: NavController, private router: Router) {}
-
-  goToPublicarServicio() {
-    this.navCtrl.navigateForward('/publicar-servicio');
+  constructor(private navCtrl: NavController, private router: Router) {
+    
   }
 
-  goToVerServicio() {
-    this.router.navigate(['/ver-servicio']);
+  nombreUsuario!: string;
+
+  utilsService = inject(UtilsService)
+
+  ngOnInit() {
+    const user: User = this.utilsService.getFromLocalStorage("user") as User;
+    this.nombreUsuario = user.nombre + " " + user.apellido
+  }
+
+
+  goToPublicarServicio() {
+    this.router.navigate(['/publicar-servicio']);
+  }
+
+  goToVerServicio(servicio: string) {
+    this.router.navigate(['/ver-servicio',{servicio}]);
   }
 
 }
