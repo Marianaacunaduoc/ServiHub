@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuardService } from './services/auth-guard.service';
+//import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
   },
   {
     path: '',
@@ -28,6 +28,10 @@ const routes: Routes = [
   {
     path: 'ver-servicio',
     loadChildren: () => import('./ver-servicio/ver-servicio.module').then( m => m.VerServicioPageModule)
+  },
+  {
+    path: 'api-consumo',
+    loadChildren: () => import('./api-consumo/api-consumo.module').then( m => m.ApiConsumoPageModule)
   }
   
 ];

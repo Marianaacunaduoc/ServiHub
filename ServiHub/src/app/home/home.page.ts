@@ -33,4 +33,8 @@ export class HomePage implements OnInit {
     this.router.navigate(['/ver-servicio',{servicio}]);
   }
 
+  verValores(){
+    this.router.navigate(['/api-consumo'])
+  }
+
 }

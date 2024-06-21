@@ -1,0 +1,29 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button text="Volver" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Indicador Financiero </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-list>
+    <ion-card *ngFor="let item of financiaData">
+      <ion-card-header>
+        <ion-card-title>{{item.nombre}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Codigo:</strong>{{item.codigo}}</p>
+        <p><strong>Unidad de Medida:</strong>{{item.unidad_medida}}</p>
+        <p><strong>Fecha:</strong>{{item.fecha | date:'short' }}</p>
+        <p><strong>Valor:</strong>{{item.valor | number:'1.2-2' }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+ 
+  
+</ion-content>
