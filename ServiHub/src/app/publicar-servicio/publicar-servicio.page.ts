@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
-import { Camera, CameraResultType } from '@capacitor/camera';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 @Component({
   selector: 'app-publicar-servicio',
@@ -43,7 +43,10 @@ export class PublicarServicioPage implements OnInit {
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: false,
-      resultType: CameraResultType.DataUrl
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Prompt,
+      promptLabelPhoto: 'Seleccione una imagen',
+      promptLabelPicture: 'Toma una foto'
     });
     this.imageSource=image.dataUrl;
   };

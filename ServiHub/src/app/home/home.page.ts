@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UtilsService } from '../services/utils.service';
 import { User } from '../models/user.model';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,9 @@ import { User } from '../models/user.model';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
 
   constructor(private navCtrl: NavController, private router: Router) {
     
@@ -36,5 +40,10 @@ export class HomePage implements OnInit {
   verValores(){
     this.router.navigate(['/api-consumo'])
   }
+
+  signOut(){
+    this.firebaseSvc.signOut();
+  }
+
 
 }

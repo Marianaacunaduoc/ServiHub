@@ -52,11 +52,16 @@
       </ion-item>
 
       <!--  ==== fotos ====  -->
-      <div id="container">
-        <ion-button (click)="takePicture()">Foto</ion-button>
-        <img *ngIf="imageSource" src="{{imageSource}}" alt="image" style= "width: 100%;max-width: 250px;">
-      </div>
+      
+      <ion-avatar *ngIf="imageSource">
+        <img src="{{imageSource}}" alt="image" />
+      </ion-avatar>
 
+      <ion-icon class="image-icon" *ngIf="!imageSource" name="image-autine"></ion-icon>
+      
+      <br>
+      <ion-button (click)="takePicture()" shape="round">Muestra tu servicio aqui!</ion-button>
+      
 
       <ion-button (click)="presentAlert()" class="submit" expand="block" type="submit" mode="ios">
         Publicar
