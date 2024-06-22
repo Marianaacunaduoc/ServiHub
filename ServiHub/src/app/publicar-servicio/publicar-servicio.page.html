@@ -48,8 +48,15 @@
       <!--  ==== descripción ====  -->
       <ion-item class="custom-input" lines="none">
         <ion-icon slot="start" name="document-text-outline" color="primary"></ion-icon>
-        <ion-textarea label="Descripción: " labelPlacement="floating" maxlength="200"></ion-textarea>
+        <ion-textarea label="Descripciaón: " labelPlacement="floating" maxlength="200"></ion-textarea>
       </ion-item>
+
+      <!--  ==== fotos ====  -->
+      <div id="container">
+        <ion-button (click)="takePicture()">Foto</ion-button>
+        <img *ngIf="imageSource" src="{{imageSource}}" alt="image" style= "width: 100%;max-width: 250px;">
+      </div>
+
 
       <ion-button (click)="presentAlert()" class="submit" expand="block" type="submit" mode="ios">
         Publicar
