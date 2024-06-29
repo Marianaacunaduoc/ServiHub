@@ -9,7 +9,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +34,7 @@
     "@capacitor/haptics": "6.0.0",
     "@capacitor/keyboard": "6.0.0",
     "@capacitor/status-bar": "6.0.0",
+    "@cypress/schematic": "^2.5.2",
     "@ionic/angular": "^8.0.0",
     "firebase": "^10.12.2",
     "ionicons": "^7.0.0",
@@ -53,6 +57,7 @@
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "cypress": "latest",
     "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsdoc": "^48.2.1",
