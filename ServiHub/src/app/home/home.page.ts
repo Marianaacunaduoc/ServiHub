@@ -25,6 +25,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     const user: User = this.utilsService.getFromLocalStorage("user") as User;
+    console.log("este es mi nombre" + user.nombre)
     this.nombreUsuario = user.nombre + " " + user.apellido
   }
 

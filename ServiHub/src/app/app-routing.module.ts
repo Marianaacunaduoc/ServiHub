@@ -21,20 +21,28 @@ const routes: Routes = [
   },
   {
     path: 'crear-cuenta',
-    loadChildren: () => import('./crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule)
+    loadChildren: () => import('./crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule),
+    canActivate:[NoAuthGuard]
   },
   {
     path: 'publicar-servicio',
-    loadChildren: () => import('./publicar-servicio/publicar-servicio.module').then( m => m.PublicarServicioPageModule)
+    loadChildren: () => import('./publicar-servicio/publicar-servicio.module').then( m => m.PublicarServicioPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'ver-servicio',
-    loadChildren: () => import('./ver-servicio/ver-servicio.module').then( m => m.VerServicioPageModule)
+    loadChildren: () => import('./ver-servicio/ver-servicio.module').then( m => m.VerServicioPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'api-consumo',
-    loadChildren: () => import('./api-consumo/api-consumo.module').then( m => m.ApiConsumoPageModule)
-  }
+    loadChildren: () => import('./api-consumo/api-consumo.module').then( m => m.ApiConsumoPageModule),
+    canActivate:[AuthGuard]
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
+  },
   
 ];
 
